@@ -9,5 +9,7 @@
 
 all: reuse-bpf.so
 
+attach-reuse-bpf.o: attach-reuse-bpf.c reuse.skel.c
+
 reuse-bpf.so: attach-reuse-bpf.o
 	ld -shared attach-reuse-bpf.o -o reuse-bpf.so -lbpf
