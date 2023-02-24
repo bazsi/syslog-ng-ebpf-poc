@@ -1,5 +1,6 @@
 #clang -g   -target bpf -nostdinc -I/usr/include -I/usr/include/x86_64-linux-gnu/ -I./include -c proba.c -o proba.o
-
+CFLAGS += -fPIC
+LDFLAGS += -shared -fPIC
 %.kern.o: %.kern.c
 	clang -O2 -g -target bpf -nostdinc -I/usr/include  -I./bpf-include -c $< -o $@
 
